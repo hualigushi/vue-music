@@ -36,6 +36,9 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '@common': resolve('src/common'),
+      '@api': resolve('src/api'),
+      '@base': resolve('src/base')
     }
   },
   module: {
@@ -74,7 +77,13 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!stylus-loader',
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       }
+
     ]
   },
   node: {

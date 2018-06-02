@@ -1,23 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <m-header></m-header>
+    <tab></tab>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
+    <player></player>
   </div>
 </template>
 
 <script>
+import MHeader from '@/components/m-header/m-header';
+import Tab from '@/components/tab/tab';
+import Player from '@/components/player/player';
+
 export default {
-  name: 'App'
-}
+  name: 'App',
+  components: {
+    MHeader,
+    Tab,
+    Player
+  }
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus" rel="stylesheet/stylus">
+  @import "./common/stylus/variable"
+  #app
+    color:$color-theme
 </style>
