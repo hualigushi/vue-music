@@ -14,5 +14,7 @@ npm run dev
 # build for production with minification
 npm run build
 
-# server port
-node prod.server.js   localhost:8080
+# server port at localhost:8080
+node prod.server.js
+
+#效果图在readme文件夹
