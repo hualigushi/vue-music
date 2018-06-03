@@ -1,6 +1,7 @@
 # vue-music
 
-> A Vue.js project
+> 仿QQ音乐APP，数据使用QQ音乐的接口爬取
+> 技术栈 ：vue+vuex+vue router+axios
 
 ## Build Setup
 
