@@ -11,12 +11,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const axios = require('axios');
-const express = require('express')
-const app = express()//请求server
-var apiRoutes = express.Router()
-app.use('/api', apiRoutes)//通过路由请求数据
-
 const env = require('../config/prod.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
