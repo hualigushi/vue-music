@@ -10,10 +10,10 @@ import VueLazyload from 'vue-lazyload'; // 图片懒加载
 
 import '@common/stylus/index.styl';
 
-//import Vconsole from 'vconsole';
+// import Vconsole from 'vconsole';
 /* eslint-disable no-unused-vars */
-//let vconsole = new Vconsole();
-//console.log('test');
+// let vconsole = new Vconsole();
+// console.log('test');
 
 fastclick.attach(document.body);
 
