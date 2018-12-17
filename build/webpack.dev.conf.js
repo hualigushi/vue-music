@@ -10,13 +10,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
-const axios = require('axios');
-const express = require('express')
-const app = express()//请求server
-var apiRoutes = express.Router()
-app.use('/api', apiRoutes)//通过路由请求数据
-
-
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
