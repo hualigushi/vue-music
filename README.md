@@ -142,4 +142,83 @@ npm run build
 # server port at localhost:8080
 node prod.server.js
 
-#效果图在readme文件夹
+# 效果图在readme文件夹
+
+```
+
+## 安装与运行
+
+npm run build
+
+```
+    server {
+       listen 9001;
+       server_name localhost;
+       root project/vue-music;
+
+        location / {
+          root project/vue-music;
+          index index.html;
+        }
+        location /api/getDiscList {
+           proxy_pass https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg;
+           proxy_set_header Host c.y.qq.com;
+           proxy_set_header Referer https://c.y.qq.com/;
+        }
+        location /api/lyric {
+            proxy_pass https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg;
+            proxy_set_header Host c.y.qq.com;
+            proxy_set_header Referer https://c.y.qq.com/;
+        }
+        location /api/getSongVkey {
+             proxy_pass https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg;
+             proxy_set_header Host c.y.qq.com;
+             proxy_set_header Referer https://c.y.qq.com/;
+        }
+        location /api/getSongList {
+            proxy_pass https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg;
+            proxy_set_header Host c.y.qq.com;
+            proxy_set_header Referer https://c.y.qq.com/;
+        }
+    }
+```
+
+
+### https方式
+
+
+```
+    server {
+        listen       443 ssl;
+        server_name localhost;
+
+        ssl_certificate      /usr/local/nginx/conf/server.crt;
+        ssl_certificate_key  /usr/local/nginx/conf/server_nopwd.key;
+
+        ssl_session_cache    shared:SSL:1m;
+        ssl_session_timeout  5m;
+
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers  on;
+
+       location / {
+          root project/vue-music;
+          index index.html;
+       }
+       location /api/getDiscList {
+             proxy_pass https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg;
+             proxy_set_header Host c.y.qq.com;
+             proxy_set_header Referer https://c.y.qq.com;
+       }
+       location /api/lyric {
+         proxy_pass https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg;
+         proxy_set_header Host c.y.qq.com;
+         proxy_set_header Referer https://c.y.qq.com/;
+       }
+       location /api/getSongVkey {
+         proxy_pass https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg;
+         proxy_set_header Host c.y.qq.com;
+       }
+    }
+    
+```
